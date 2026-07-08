@@ -10,7 +10,7 @@
 + (void)setupOptionsAtGameDir:(NSString *)gameDir {
     NSAssert(windowWidth > 0 && windowHeight > 0, @"called before setting windowWidth/windowHeight?");
     MinecraftOptionUtils *options = [MinecraftOptionUtils sharedInstance];
-    [options loadFromPath:[gameDir stringByAppendingPathComponent:@"options.txt"]];
+    options.optionsPath = [gameDir stringByAppendingPathComponent:@"options.txt"];
     // initial gui scale, also implicitly calls load
     [options updateMCGuiScale];
     [options setKey:@"fullscreen" value:@"false"];
